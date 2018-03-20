@@ -24,7 +24,9 @@ class SqlQuery
 
   def execute(prepare = true)
     to_execute = prepare ? prepared_for_logs : sql
-    connection.execute(to_execute).entries
+    executed = connection.execute(to_execute)
+    binding.pry
+    executed.entries
   end
 
   def sql
